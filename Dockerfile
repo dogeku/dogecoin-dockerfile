@@ -22,7 +22,7 @@ RUN chmod 0700 /home/dogecoin
 RUN mkdir /home/dogecoin/bin
 RUN cp dogecoind /home/dogecoin/bin/dogecoind
 ADD dogecoin.conf /home/.dogecoin/dogecoin.conf
-RUN sed -ine s/^rpcpassword=$/rpcpassword=`pwgen -s 44`/ /home/.dogecoin/dogecoin.conf
+RUN sed -i s/^rpcpassword=$/rpcpassword=`pwgen -s 44`/ /home/.dogecoin/dogecoin.conf
 RUN chmod 0600 /home/.dogecoin/dogecoin.conf
 RUN chown -R dogecoin:users /home/dogecoin/bin
 
